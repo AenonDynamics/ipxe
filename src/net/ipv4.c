@@ -176,16 +176,16 @@ static struct ipv4_miniroute * ipv4_route ( unsigned int scope_id,
 			 * route.
 			 */
 			if ( ( ( dest->s_addr ^ miniroute->netaddr.s_addr )
-			       & miniroute->netmask.s_addr ) == 0 )
-				/* Is this via a gateway?
-				 *
-				 * If so, then set the next hop.
-				 */
-				if ( miniroute->gateway.s_addr ) {
-					*dest = miniroute->gateway;
-				}
-				return miniroute;
-
+			       & miniroute->netmask.s_addr ) == 0 ){
+                /* Is this via a gateway?
+                *
+                * If so, then set the next hop.
+                */
+                if ( miniroute->gateway.s_addr ) {
+                    *dest = miniroute->gateway;
+                }
+                return miniroute;
+            }
 		}
 	}
 
